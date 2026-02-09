@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multibagger Tracker</title>
+</head>
+<body>
+  <h2>Multibagger Stocks</h2>
+  <div id="stocks">Loading...</div>
+
+  <script>
+    fetch("https://multibagger-backend--prasadpadi8888.replit.app/stocks")
+      .then(response => response.json())
+      .then(data => {
+        let html = "";
+        data.forEach(stock => {
+          html += `<p>${stock.symbol} — Score: ${stock.score}</p>`;
+        });
+        document.getElementById("stocks").innerHTML = html;
+      });
+  </script>
+</body>
+</html>
